@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/sucursal.css">
+    <title>Document</title>
+</head>
+<body>
+<div class = "contenedor">
 <?php
    include ("conexion.php");
 
@@ -5,41 +16,8 @@
                from bodega as b, detalle_bodega as db, producto as p
                where db.idbod = p.id
                and db.idprod = b.id";
-   
    $result = mysqli_query($conn,$queryAll);
-
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-table{
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-table td{
-	border:1px solid black;
-	padding: 10px 20px;
-	text-transform: uppercase;
-}
-table tr:hover{
-	background:#ccc;
-}
-table td:hover{
-	color: blue;
-}
-.contenedor {
-        color: black;
-    }
-
-</style>
-<body>
-<div class = "contenedor">
 <table>
     <tr>
         <td><b>BODEGA</b></td>
@@ -58,6 +36,45 @@ table td:hover{
     <?php } ?>
 </table>
 </div>
-    
+
+<hr>
+
+<!-- Actualizar Producto-->
+<?php
+   $sqlPro = "SELECT * FROM producto";
+   $sqlCiu = "SELECT * FROM bodega";
+   $pro = mysqli_query($conn,$sqlPro);
+   $ciu = mysqli_query($conn,$sqlCiu);
+?>
+
+<div class="actualizar">
+    <form action="actualizarProductos.php"  method="post" id="formulario">
+
+    <label for="">Producto:</label>
+    <select name="producto" id="">
+        <?php while ($fila = mysqli_fetch_row($pro)){  ?>
+            <option value="<?php echo $fila[1] ?>"> <?php echo $fila[1] ?> </option>
+        <?php } ?>
+    </select>
+        </br>
+    <label for="">Bodegas:  </label>
+    <select name="ciudad" id="" >
+        <?php while ($fila = mysqli_fetch_row($ciu)){  ?>
+            <option value="<?php echo $fila[1] ?>"> <?php echo $fila[1] ?> </option>
+        <?php } ?>
+    </select>
+
+    <div>
+        <label for="cantidad">Cantidad:</label><input type="text" id="cant" class="cantidad" name="cantidad">
+        <p id="error" class="formulario__input-error" >Ingrese solo numeros</p>
+    </div>
+
+    <div class="botones">
+        <input type="submit"  id="enviar" value="Enviar" name="enviar" >
+    </div>
+
+    </form>
+</div>
+    <script src="../js/admin.js" ></script>
 </body>
 </html>

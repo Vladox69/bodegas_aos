@@ -1,4 +1,4 @@
-
+//alert("eta biei");
 const formulario = document.getElementById("formulario");
 const cantidad = document.getElementById("cant");
 
@@ -27,8 +27,7 @@ const validar = () =>  {
 cantidad.addEventListener( "keyup", validar );
 
 //enviar
-const formulario =document.getElementById("ff");
-const send =document.getElementById("enviar");
+const send = document.getElementById("enviar");
 const validarCampo = (e) =>{
     if( cantidad.value === '' || cantP == false){
         e.preventDefault();
@@ -38,4 +37,3 @@ const validarCampo = (e) =>{
 }
  
 formulario.addEventListener("submit", validarCampo);
-
