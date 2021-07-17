@@ -12,11 +12,11 @@ class EnlacesPaginas
         }
         else if($enlacesModel=="index")
         {
-            $module="views/modules/inicio.php";
+            $module="views/modules/login.php";
         }
         else
         {
-            $module="views/modules/inicio.php";
+            $module="views/modules/login.php";
         }
         return $module;
 
