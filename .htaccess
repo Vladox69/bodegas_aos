@@ -1,0 +1,1 @@
+ErrorDocument 404 http://localhost/bodegas/views/404.php
