@@ -24,6 +24,11 @@ include 'models/conexion.php';
             <main>
             
             <div class="centrar" style="margin-bottom: 20px;">
+    <main>
+
+    <form method="post" action="http://localhost/bodegas_aos/models/cargarProductos.php">
+
+    <div class="centrar" style="margin-bottom: 20px;">
 
         <select name="bodegas">
            <?php
@@ -39,6 +44,14 @@ include 'models/conexion.php';
 </main>
     <?php
         
+    <div>
+        <input type="submit" value="Consultar">
+    </div>
+
+    </form>
+
+
+
     
                
           }else{
