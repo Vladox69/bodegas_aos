@@ -1,4 +1,5 @@
 <?php
+session_start();
 $usuario=$_POST['usuario'];
 $contraseña=$_POST['contraseña'];
 $_SESSION['usuario']=$usuario;
@@ -16,7 +17,7 @@ if(is_null($filas)){
     
     echo "<script>
                alert('Usuario o contraseña incorrecto');
-               window.location= '../views/modules/login.php'
+               window.location= '../index.php?action=login'
    </script>";
 ?>
 <?php
@@ -25,24 +26,23 @@ if(is_null($filas)){
 
     
 }else
-    session_start();
     $_SESSION['nom'] = $filas['nombre']; 
     $_SESSION['perfil'] = $filas['perfil'];
     $_SESSION['idbod'] = $filas['idbod'];
     if($filas['perfil']=='admin'){ //administrador
-    header("location:../views/modules/sucursales.php");
+    header('location: ../index.php?action=sucursales');
 
     }else
     if($filas['perfil']=='vendedor'){ //vendedor
-    header("location:../views/modules/productos.php");
+    header('location: ../index.php?action=productos');
     }
     else{
     ?>
+    
+  
     <?php
-    include("../index.php");
-    ?>
-    <h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>
-    <?php
+    include('location: ../index.php?action=login');
+
 }
 
 mysqli_free_result($resultado);

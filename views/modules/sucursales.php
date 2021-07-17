@@ -2,6 +2,7 @@
 include 'models/conexion.php';
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,22 +14,46 @@ include 'models/conexion.php';
     <title>Document</title>
 </head>
 <body>
-    <main>
-
-    <div class="centrar" style="margin-bottom: 20px;">
+    <?php
+        
+       
+        if(isset($_SESSION['nom'])){
+            echo "Bienvenido/a ";
+               echo $_SESSION['nom'];
+            ?>
+            <main>
+            
+            <div class="centrar" style="margin-bottom: 20px;">
 
         <select name="bodegas">
-            <?php
+           <?php
             $query_bod = "SELECT ciudad FROM bodega";
-            $resultado = mysqli_query($conn, $query_bod);
-            while ($row = mysqli_fetch_row($resultado)) { ?>
-                <option value="<?php echo $row[0] ?>"> <?php echo $row[0] ?> </option>
-            <?php } ?>
-        </select>
+          $resultado = mysqli_query($conn, $query_bod);
+          while ($row = mysqli_fetch_row($resultado)) { ?>
+            <option value="<?php echo $row[0] ?>"> <?php echo $row[0] ?> </option>
+          <?php } ?>
+    </select>
+</div>
+
+
+</main>
+    <?php
+        
+    
+               
+          }else{
+                   
+                 
+    ?>
+
+    <div>
+                <h>Es necesario iniciar sesión para poder acceder a esta pestaña</h>
     </div>
 
-    
-    </main>
+    <?php
+               }
+    ?>
+
 
 </body>
 </html>
