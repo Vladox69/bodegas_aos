@@ -42,7 +42,6 @@ include 'models/conexion.php';
 
 
 </main>
-    <?php
         
     <div>
         <input type="submit" value="Consultar">
@@ -51,7 +50,7 @@ include 'models/conexion.php';
     </form>
 
 
-
+    <?php
     
                
           }else{
