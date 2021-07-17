@@ -6,11 +6,12 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 
     include 'conexion.php';
-    //$Bodega=$_POST['bodegas'];    
+    $Bodega=$_POST['bodegas'];
+    //$Bodega="QUITO";
 
    // $sqlSelect="SELECT * FROM producto where id in (select idprod from detalle_bodega where idbod=(select id from bodega where ciudad='$Bodega'))"; 
 
-    $sqlSelect="SELECT p.nombre, d.cantidad, b.ciudad  FROM bodega as b, producto as p, detalle_bodega as d where b.id=d.idbod and p.id=d.idprod";
+    $sqlSelect="SELECT p.nombre, d.cantidad  FROM bodega as b, producto as p, detalle_bodega as d where b.ciudad='$Bodega' and b.id=d.idbod and p.id=d.idprod";
     
     $respuesta=$conn->query($sqlSelect);
     $result=array();

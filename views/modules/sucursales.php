@@ -15,6 +15,8 @@ include 'models/conexion.php';
 <body>
     <main>
 
+    <form method="post" action="http://localhost/bodegas_aos/models/cargarProductos.php">
+
     <div class="centrar" style="margin-bottom: 20px;">
 
         <select name="bodegas">
@@ -26,6 +28,14 @@ include 'models/conexion.php';
             <?php } ?>
         </select>
     </div>
+
+    <div>
+        <input type="submit" value="Consultar">
+    </div>
+
+    </form>
+
+
 
     
     </main>
