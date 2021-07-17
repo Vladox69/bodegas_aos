@@ -6,8 +6,8 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 
     include 'conexion.php';
-    $Bodega=$_POST['bodegas'];
-    //$Bodega="QUITO";
+    //$Bodega=$_POST['bodegas'];
+    $Bodega="QUITO";
 
    // $sqlSelect="SELECT * FROM producto where id in (select idprod from detalle_bodega where idbod=(select id from bodega where ciudad='$Bodega'))"; 
 

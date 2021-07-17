@@ -4,41 +4,69 @@ include 'models/conexion.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/inicio.css">
     <title>Document</title>
 </head>
+
 <body>
     <main>
 
-    <form method="post" action="http://localhost/bodegas_aos/models/cargarProductos.php">
+        <form method="post">
 
-    <div class="centrar" style="margin-bottom: 20px;">
+            <div class="centrar" style="margin-bottom: 20px;">
 
-        <select name="bodegas">
-            <?php
+                <select name="bodegas">
+                    <?php
             $query_bod = "SELECT ciudad FROM bodega";
             $resultado = mysqli_query($conn, $query_bod);
             while ($row = mysqli_fetch_row($resultado)) { ?>
-                <option value="<?php echo $row[0] ?>"> <?php echo $row[0] ?> </option>
-            <?php } ?>
-        </select>
-    </div>
+                    <option value="<?php echo $row[0] ?>"> <?php echo $row[0] ?> </option>
+                    <?php } ?>
+                </select>
+            </div>
 
-    <div>
-        <input type="submit" value="Consultar">
-    </div>
+            <div>
+                <input name="btnConsultar" type="submit" value="Consultar">
+            </div>
 
-    </form>
+            <div>
+
+                <table>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    <?php
+    if(isset($_POST['btnConsultar'])) {
+        $Bodega=$_POST['bodegas'];
+        $sqlSelect="SELECT p.nombre, d.cantidad  FROM bodega as b, producto as p, detalle_bodega as d where b.ciudad='$Bodega' and b.id=d.idbod and p.id=d.idprod";
+        $respuesta=$conn->query($sqlSelect);
+        if($respuesta->num_rows > 0){
+             while( $fila = mysqli_fetch_row($respuesta) ) { ?>
+                    <tr>
+                        <td> <?php echo $fila[0];?> </td>
+                        <td> <?php echo $fila[1];?> </td>
+                    <tr>
+
+                        <?php }
+        }
+                    } ?>
 
 
+                </table>
+            </div>
 
-    
+
+        </form>
+
     </main>
 
 </body>
+
 </html>
