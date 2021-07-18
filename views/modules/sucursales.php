@@ -29,19 +29,29 @@ include 'models/conexion.php';
 
                 <div class="tool-bar">
                     <div class="consulta">
-                        <select name="bodegas">
-                            <?php
-                            $query_bod = "SELECT ciudad FROM bodega";
-                            $resultado = mysqli_query($conn, $query_bod);
-                            while ($row = mysqli_fetch_row($resultado)) { ?>
-                                <option value="<?php echo $row[0] ?>"> <?php echo $row[0] ?> </option>
-                            <?php } ?>
-                        </select>
-                        <input name="btnConsultar" type="submit" value="Consultar">
+                        <div>
+                            <select class="campo__tabla" name="bodegas">
+                                <?php
+                                $query_bod = "SELECT ciudad FROM bodega";
+                                $resultado = mysqli_query($conn, $query_bod);
+                                while ($row = mysqli_fetch_row($resultado)) { ?>
+                                    <option value="<?php echo $row[0] ?>"> <?php echo $row[0] ?> </option>
+                                <?php } ?>
+                            </select>
+
+                        </div>
+                        <button name="btnConsultar" type="submit" value="Consultar">
+                            <i class="material-icons">check</i>
+                        </button>
                     </div>
-                    <div class="busqueda">
-                        <input name="buscar" type="text" placeholder="Nombre Producto">
-                        <input name="btnBuscar" type="submit" value="Buscar">
+                    <div class="consulta">
+                        <div>
+
+                            <input class="campo__tabla" name="buscar" type="text" placeholder="Nombre Producto">
+                        </div>
+                        <button name="btnBuscar" type="submit" value="Buscar">
+                            <i class="material-icons">search</i>
+                        </button>
                     </div>
                 </div>
 

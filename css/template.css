@@ -225,3 +225,10 @@ table td{
 	text-transform: uppercase;
 }
 
+.consulta {
+  display: flex;
+}
+
+.campo__tabla{
+  height: 100%;
+}
