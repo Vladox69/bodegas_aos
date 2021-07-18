@@ -30,6 +30,8 @@ cantidad.addEventListener( "keyup", validar );
 const send = document.getElementById("enviar");
 const validarCampo = (e) =>{
     if( cantidad.value === '' || cantP == false){
+        
+        alert("llane los campos");
         e.preventDefault();
     }else{
         send.type="text";

@@ -2,7 +2,7 @@
 select{
     position: relative;
     height: 30px;
-    width: 15%;
+    width: 60%;
     left: 25px;
     border: 1px solid #95B8E7;
     background-color: #fff;
@@ -33,6 +33,7 @@ select{
 table{
 	border: 1px solid black;
 	border-collapse: collapse;
+    user-select: none;
 }
 table td{
 	border:1px solid black;
@@ -41,10 +42,60 @@ table td{
 }
 table tr:hover{
 	background:#ccc;
+    color: red;
 }
-table td:hover{
-	color: blue;
-}
+/*table td:hover{
+	color: red;
+}*/
 .contenedor {
         color: black;
     }
+
+
+/*contenedores*/
+.actualizar{
+    border: 2px solid bisque;
+    padding:30px 20px;
+    width:350px;
+    height:210px;
+    float: left;
+    display:block;
+}
+
+.actualizar{
+    position: fixed;
+    left: 57%;
+    top: 25%;
+    user-select: none;
+}    
+
+.contenedor{
+    position: fixed;
+    left: 13%;
+    top: 22%;
+}
+
+h2{
+    color:burlywood;
+    font-family: "verdana";
+    left: 15px;
+}
+
+input{
+    cursor: pointer;
+    left: 10px;
+    margin-left:88px;
+    margin-top: 5px;
+    width: 100px;
+    height: 25px;
+}
+
+.h2{
+    color:burlywood;
+    font-family: "verdana";
+    left: 15px; 
+    border: 1px solid black;
+	border-collapse: collapse;
+    padding: 10px;
+    user-select: none;
+}
