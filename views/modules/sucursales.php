@@ -20,81 +20,76 @@ include 'models/conexion.php';
 
 
     if (isset($_SESSION['nom'])) {
-        echo "Bienvenido/a ";
-        echo $_SESSION['nom'];
+        echo "<h1> Bienvenid@ " . $_SESSION['nom'] . "</h1>";
     ?>
-        <main>
 
-            <div class="centrar" style="margin-bottom: 20px;">
-                <main>
+        <div class="contenedor tabla-contenedor">
 
-                    <form method="post">
+            <form method="post">
 
-                        <div class="centrar" style="margin-bottom: 20px;">
+                <div class="tool-bar">
+                    <div class="consulta">
+                        <select name="bodegas">
+                            <?php
+                            $query_bod = "SELECT ciudad FROM bodega";
+                            $resultado = mysqli_query($conn, $query_bod);
+                            while ($row = mysqli_fetch_row($resultado)) { ?>
+                                <option value="<?php echo $row[0] ?>"> <?php echo $row[0] ?> </option>
+                            <?php } ?>
+                        </select>
+                        <input name="btnConsultar" type="submit" value="Consultar">
+                    </div>
+                    <div class="busqueda">
+                        <input name="buscar" type="text" placeholder="Nombre Producto">
+                        <input name="btnBuscar" type="submit" value="Buscar">
+                    </div>
+                </div>
 
-                            <select name="bodegas">
-                                <?php
-                                $query_bod = "SELECT ciudad FROM bodega";
-                                $resultado = mysqli_query($conn, $query_bod);
-                                while ($row = mysqli_fetch_row($resultado)) { ?>
-                                    <option value="<?php echo $row[0] ?>"> <?php echo $row[0] ?> </option>
-                                <?php } ?>
-                            </select>
-                        </div>
+                <div>
 
-                        <div>
-                            <input name="btnConsultar" type="submit" value="Consultar">
-                        </div>
-                        <div>
-                            <input name="buscar" type="text" placeholder="Nombre Producto">
-                            <input name="btnBuscar" type="submit" value="Buscar">
-                        </div>            
-                        <div>
+                    <table class="tabla">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Bodega</th>
+                        </tr>
+                        <?php
+                        if (isset($_POST['btnConsultar'])) {
+                            $Bodega = $_POST['bodegas'];
+                            $sqlSelect = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where b.ciudad='$Bodega' and b.id=d.idbod and p.id=d.idprod";
+                            $respuesta = $conn->query($sqlSelect);
 
-                            <table>
+                            while ($fila = mysqli_fetch_row($respuesta)) { ?>
                                 <tr>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Bodega</th>
-                                </tr>
-                                <?php
-                                if (isset($_POST['btnConsultar'])) {
-                                    $Bodega = $_POST['bodegas'];
-                                    $sqlSelect = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where b.ciudad='$Bodega' and b.id=d.idbod and p.id=d.idprod";
-                                    $respuesta = $conn->query($sqlSelect);
-
-                                    while ($fila = mysqli_fetch_row($respuesta)) { ?>
-                                        <tr>
-                                            <td> <?php echo $fila[0]; ?> </td>
-                                            <td> <?php echo $fila[1]; ?> </td>
-                                            <td> <?php echo $fila[2]; ?> </td>
-                                        <tr>
+                                    <td> <?php echo $fila[0]; ?> </td>
+                                    <td> <?php echo $fila[1]; ?> </td>
+                                    <td> <?php echo $fila[2]; ?> </td>
+                                <tr>
 
 
                                 <?php }
-                                }else if(isset($_POST['btnBuscar'])){
-                                    $nomProducto = $_POST['buscar'];
-                                    $sqlBuscar = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where p.nombre like '".$nomProducto."%' and b.id=d.idbod and p.id=d.idprod order by p.nombre";
-                                    $respuesta = $conn->query($sqlBuscar);
-                                    while ($fila = mysqli_fetch_row($respuesta)) {?>
-                                        <tr>
-                                        <td> <?php echo $fila[0]; ?> </td>
-                                        <td> <?php echo $fila[1]; ?> </td>
-                                        <td> <?php echo $fila[2]; ?> </td>
-                                        <tr>
-                                    <?php
-                                    }
-                                }
-                            } ?>
+                        } else if (isset($_POST['btnBuscar'])) {
+                            $nomProducto = $_POST['buscar'];
+                            $sqlBuscar = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where p.nombre like '" . $nomProducto . "%' and b.id=d.idbod and p.id=d.idprod order by p.nombre";
+                            $respuesta = $conn->query($sqlBuscar);
+                            while ($fila = mysqli_fetch_row($respuesta)) { ?>
+                                <tr>
+                                    <td> <?php echo $fila[0]; ?> </td>
+                                    <td> <?php echo $fila[1]; ?> </td>
+                                    <td> <?php echo $fila[2]; ?> </td>
+                                <tr>
+                        <?php
+                            }
+                        }
+                    } ?>
 
 
-                            </table>
-                        </div>
+                    </table>
+                </div>
 
 
-                    </form>
-
-                </main>
+            </form>
+        </div>
 
 
 </body>

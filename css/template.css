@@ -24,7 +24,7 @@ html {
     box-sizing: inherit;
 }
 body {
-    font-family: var(--fuentePrincipal);
+    font-family: 'Lato', sans-serif;
     font-size: 1.6rem;
     line-height: 1.8;
 }
@@ -51,8 +51,8 @@ picture {
 }
 
 h1, h2, h3 {
-    font-family: var(--fuentePrincipal);
-    margin: var(--separacion) / 2 0;
+    font-family: 'Lato', sans-serif;
+    margin: 5rem / 2 0;
     font-weight: 300;
     text-align: center;
     
@@ -199,3 +199,29 @@ h4 {
 .campo__login{
 width: 25rem;
 }
+
+
+.tabla-contenedor{
+  background-color: #333333; 
+}
+
+.tool-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tabla{
+  color: #FFFFFF;
+}
+
+table{
+	border-collapse: collapse;
+  width: 107rem;
+}
+table td{
+  border: 1px solid white;
+	padding: 1rem 2rem;
+	text-transform: uppercase;
+}
+
