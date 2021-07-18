@@ -30,11 +30,11 @@ if(is_null($filas)){
     $_SESSION['perfil'] = $filas['perfil'];
     $_SESSION['idbod'] = $filas['idbod'];
     if($filas['perfil']=='admin'){ //administrador
-    header('location: ../index.php?action=sucursales');
+    header('location: ../index.php?action=productos');
 
     }else
     if($filas['perfil']=='vendedor'){ //vendedor
-    header('location: ../index.php?action=productos');
+    header('location: ../index.php?action=sucursales');
     }
     else{
     ?>

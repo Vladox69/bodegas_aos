@@ -91,6 +91,11 @@ include 'models/conexion.php';
                         <?php
                             }
                         }
+                    }else{
+                        ?>
+
+                <h1>Es necesario iniciar sesión para acceder a esta pestaña</h1>
+                        <?php
                     } ?>
 
 

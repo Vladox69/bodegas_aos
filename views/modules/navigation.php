@@ -11,7 +11,7 @@
                 </a>
                 <nav class="navegacion">
                     <a href="index.php?action=sucursales"> Sucursales</a>
-                    <a href="index.php?action=productos"> Productos</a>
+                    <a href="index.php?action=productos"> Admin</a>
                     <a href="index.php?action=contacto"> Contacto</a>
                     <a href="models/logout.php"> Cerrar Sesión</a>
                 <?php
@@ -23,7 +23,7 @@
                     <nav class="navegacion">
                         <a href="index.php?action=login"> Servicios</a>
                         <a href="index.php?action=sucursales"> Sucursales</a>
-                        <a href="index.php?action=productos"> Productos</a>
+                        <a href="index.php?action=productos"> Admin</a>
                         <a href="index.php?action=contacto"> Contacto</a>
                     </nav>
                 <?php } ?>
