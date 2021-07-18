@@ -178,5 +178,24 @@ h4 {
   padding: 5rem;
 }
 
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 
+.login .campo{
+  display: grid;
+  justify-content: space-between;
+}
+.boton{
+  cursor: pointer;
+  background-color: var(--grisOscuro);
+  color: var(--blanco);
+  padding: 3px 3rem;
+}
 
+.campo__login{
+width: 25rem;
+}

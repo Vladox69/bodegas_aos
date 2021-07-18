@@ -6,18 +6,23 @@
 </head>
 
 <body>
-    <div>
-        <h>Login</h>
+
+    <form class="contenedor login" action="models/validar.php" method="post">
         
-        <form action="models/validar.php" method="post">
-    	
-            <input type="text" id="usuario" name="usuario" placeholder="Usuario" required="required" />
-            <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required="required" />
-         <input type="submit" value="Ingresar">
+        <h1 class="centrar-texto">
+            Login
+        </h1>
+        <div class="campo">
+            <label for="usuario"> Usuario</label>
+            <input class="campo__login" type="text" id="usuario" name="usuario"  required="required" />
+        </div>
 
-        </form>
-    </div>
-
+        <div class="campo">
+        <label for="contraseña">Contraseña</label>
+            <input class="campo__login" type="password" id="contraseña" name="contraseña"  required="required" />
+        </div>
+        <input class="boton" type="submit" value="Ingresar">
+    </form>
 </body>
 
 </html>

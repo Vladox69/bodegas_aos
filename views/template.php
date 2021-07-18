@@ -24,9 +24,9 @@
             $mvc -> enlacesPaginasController();
         ?>
     </main>
-
+        <!--
         <?php include "modules/footer.php" ?>
-        
+        -->
     
 </body>
 </html>
