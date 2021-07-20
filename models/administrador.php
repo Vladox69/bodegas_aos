@@ -50,7 +50,7 @@
 
 <div class="actualizar">
     <h2>Actualizar Cantidad</h2>
-    <form action="http://localhost/models/actualizarProductos.php"  method="post" id="formulario">
+    <form action="models/actualizarProductos.php"  method="post" id="formulario">
 
     <label for="">Producto:</label>
     <select name="producto" id="">
