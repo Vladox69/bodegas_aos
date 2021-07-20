@@ -89,15 +89,7 @@ include 'models/conexion.php';
                                 <tr>
                             <?php
                             }
-                        }
-                    } else {
-                            ?>
-
-                            <h1>Es necesario iniciar sesión para acceder a esta pestaña</h1>
-                        <?php
-                    } ?>
-
-
+                        } ?>
                     </table>
                 </div>
 
@@ -106,17 +98,28 @@ include 'models/conexion.php';
         </div>
         <h2 class="centrar-texto">Vender producto</h2>
         <div class="venta centrar-texto">
-                <div class="campo__venta">
+            <div class="campo__venta">
                 <label for="">Nombre del producto:</label>
                 <input type="text">
-                </div>
-                <div class="campo__venta">
+            </div>
+            <div class="campo__venta">
                 <label for="">Cantidad:</label>
                 <input type="number" min=0>
-                <input type="submit"> 
-                </div>
-
+                <input type="submit">
             </div>
+
+        </div>
+
+    <?php
+    } else {
+    ?>
+
+        <h1>Es necesario iniciar sesión para acceder a esta pestaña</h1>
+    <?php
+    } ?>
+
+
+
 
 </body>
 
