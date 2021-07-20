@@ -7,7 +7,7 @@ const expresiones = {
 }
 
 const campos = {
-    nombre : false,
+    nombre : true,
     cantP : true
 }
 
@@ -47,7 +47,7 @@ const nom = document.getElementById("nom");
 
 
 const validar2 = () =>  {
-    if( expresiones.nombreP.test(cantidad.value) ){
+    if( expresiones.nombreP.test(nom.value) ){
         document.getElementById("errorN").classList.remove("formulario__input-error-activo");
         document.getElementById("errorN").classList.add("formulario__input-error");
         campos[nombre] = true;
