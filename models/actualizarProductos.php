@@ -25,10 +25,10 @@ $actulizar = "update detalle_bodega
             and idprod = '$product' ";
 $resultA = mysqli_query($conn,$actulizar);
 if( $resultA == false ){
-    header("location:http://localhost/bodegas_aos/views/modules/admin.php");
+    header("location:http://localhost/bodegas_aos/index.php?action=productos");
     //echo json_encode("no actualizaddo");
 }else{
     //echo json_encode("Actualizado");
-    header("location:http://localhost/bodegas_aos/views/modules/admin.php");
+    header("location:http://localhost/bodegas_aos/index.php?action=productos");
 }   
 ?>
