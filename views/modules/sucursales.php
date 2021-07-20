@@ -96,53 +96,59 @@ include 'models/conexion.php';
             </form>
 
 
-<br><br>
-<hr>
-<!--vender-->
-<?php
-   $sqlPro = "SELECT * FROM producto";
-   $pro = mysqli_query($conn,$sqlPro);
-?>
-    
-<div class="actualizar">
-    <h2>Vender Producto</h2>
-    <form action="#"  method="post" id="formulario">
+            <br><br>
+            <hr>
+            <!--vender-->
+            <?php
+            $sqlPro = "SELECT * FROM producto";
+            $pro = mysqli_query($conn, $sqlPro);
+            ?>
 
-    <label for="">Producto:</label>
-    <select name="producto" id="" class="select">
-        <?php while ($fila = mysqli_fetch_row($pro)){  ?>
-            <option value="<?php echo $fila[1] ?>"> <?php echo $fila[1] ?> </option>
-        <?php } ?>
-    </select>
+            <div class="actualizar">
+                <h2>Vender Producto</h2>
+                <form action="#" method="post" id="formulario">
+                    <div>
+                        <label for="">Bodega:</label>
+                        <select name="ciudades" id="ciud">
+                            <option value disabled selected>
+                                Selecciona una ciudad
+                            </option>
+                            <option value="1">GUAYAQUIL</option>
+                            <option value="2">QUITO</option>
+                            <option value="3">CUENCA</option>
+                        </select>
+                    </div>
+                        <div id="productos">
+                        </div>
 
-    <div>
-        <label for="cantidad">Cantidad:</label><input type="text" id="cant" class="cantidad" name="cantidad">
-        <p id="error" class="formulario__input-error" >Ingrese solo numeros</p>
-    </div>
+                    <div>
+                        <label for="cantidad">Cantidad:</label><input type="number" min=0 id="cant" class="cantidad" name="cantidad">
+                        <p id="error" class="formulario__input-error">Ingrese solo numeros</p>
+                    </div>
 
-    <div class="botones">
-        <input type="submit"  id="enviar" value="Comprar" name="enviar" class="input" >
-    </div>
+                    <div class="botones">
+                        <input type="submit" id="enviar" value="Comprar" name="enviar" class="input">
+                    </div>
 
-    </form>
-</div>
+                </form>
+            </div>
 
 
-<script src="js/admin2.js" ></script>
-    
+            <script src="js/admin2.js"></script>
 
-    <?php
+
+        <?php
     } else {
-    ?>
+        ?>
 
-        <h1>Es necesario iniciar sesión para acceder a esta pestaña</h1>
-    <?php
+            <h1>Es necesario iniciar sesión para acceder a esta pestaña</h1>
+        <?php
     } ?>
 
-<?php
+        <?php
         $sqlPro = "SELECT * FROM producto";
-        $pro = mysqli_query($conn,$sqlPro);
-    ?>
+        $pro = mysqli_query($conn, $sqlPro);
+        ?>
 
 
 </body>

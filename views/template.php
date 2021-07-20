@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
       
     <title>Bodegas AOS</title>
     
@@ -33,3 +34,24 @@
     
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        recargarList();
+        $('#ciud').change(function(){
+            recargarList();
+        });
+    })
+</script>
+
+<script type="text/javascript">
+    function recargarList(){
+        $.ajax({
+            type:"POST",
+            url:"http://localhost/bodegas_aos/models/productosSelec.php",
+            data:"ciud="+$('#ciud').val(),
+            success:function(r){
+                $('#productos').html(r);
+            }
+        });
+    }    
+</script>

@@ -12,18 +12,9 @@
 <body>
     <h2>Ciudades</h2>
     <div>
-        <select name="ciudades" id="ciud">
-            <option value disabled selected>
-                Selecciona una ciudad
-            </option>
-            <option value="1">GUAYAQUIL</option>
-            <option value="2">QUITO</option>
-            <option value="3">CUENCA</option>
-        </select>
+        
     </div>
-    <div id="productos">
-
-    </div>
+    
 
 </body>
 
