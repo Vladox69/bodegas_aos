@@ -11,7 +11,6 @@ include 'models/conexion.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/inicio.css">
     <title>Document</title>
 </head>
 
@@ -88,13 +87,13 @@ include 'models/conexion.php';
                                     <td> <?php echo $fila[1]; ?> </td>
                                     <td> <?php echo $fila[2]; ?> </td>
                                 <tr>
-                        <?php
+                            <?php
                             }
                         }
-                    }else{
-                        ?>
+                    } else {
+                            ?>
 
-                <h1>Es necesario iniciar sesión para acceder a esta pestaña</h1>
+                            <h1>Es necesario iniciar sesión para acceder a esta pestaña</h1>
                         <?php
                     } ?>
 
@@ -105,7 +104,19 @@ include 'models/conexion.php';
 
             </form>
         </div>
+        <h2 class="centrar-texto">Vender producto</h2>
+        <div class="venta centrar-texto">
+                <div class="campo__venta">
+                <label for="">Nombre del producto:</label>
+                <input type="text">
+                </div>
+                <div class="campo__venta">
+                <label for="">Cantidad:</label>
+                <input type="number" min=0>
+                <input type="submit"> 
+                </div>
 
+            </div>
 
 </body>
 
