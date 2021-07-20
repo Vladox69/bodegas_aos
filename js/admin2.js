@@ -7,19 +7,21 @@ const expresiones = {
 }
 
 const campos = {
-    nombre : true,
-    cantP : true
+    nombre : false,
+    cantP : false
 }
+
+const aux=false;
 
 const validar = () =>  {
     if( expresiones.cantidad.test(cantidad.value) ){
         document.getElementById("error").classList.remove("formulario__input-error-activo");
         document.getElementById("error").classList.add("formulario__input-error");
-        campos[cantP] = true;
+        aux = true;
     }else{
         document.getElementById("error").classList.remove("formulario__input-error");
         document.getElementById("error").classList.add("formulario__input-error-activo");
-        campos[cantP] = false;
+        aux = false;
         //console.log("jkd");
     }
     //console.log("jkd");
@@ -29,9 +31,9 @@ cantidad.addEventListener( "keyup", validar );
 //enviar
 const send = document.getElementById("enviar");
 const validarCampo = (e) =>{
-    if( cantidad.value === '' || cantP == false){
+    if( cantidad.value === '' || aux === false){
         
-        alert("llane los campos");
+        alert("Error al enviar Datos");
         e.preventDefault();
     }else{
         send.type="text";
@@ -50,23 +52,20 @@ const validar2 = () =>  {
     if( expresiones.nombreP.test(nom.value) ){
         document.getElementById("errorN").classList.remove("formulario__input-error-activo");
         document.getElementById("errorN").classList.add("formulario__input-error");
-        campos[nombre] = true;
+        aux = true;
     }else{
         document.getElementById("errorN").classList.remove("formulario__input-error");
         document.getElementById("errorN").classList.add("formulario__input-error-activo");
-        campos[nombre] = false;
-        //console.log("jkd");
+        aux = false;
     }
-    //console.log("jkd");
 }
 nom.addEventListener( "keyup", validar2 );
 
 //enviar
 const send2 = document.getElementById("enviarN");
 const validarCampo2 = (e) =>{
-    if( nom.value === '' || cantP == false){
-        
-        alert("llane los campos");
+    if( nom.value === '' || aux === false){
+        alert("Error al enviar Datos");
         e.preventDefault();
     }else{
         send2.type="text";

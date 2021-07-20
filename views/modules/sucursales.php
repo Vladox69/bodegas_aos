@@ -11,6 +11,7 @@ include 'models/conexion.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/vender.css">
     <title>Document</title>
 </head>
 
@@ -92,23 +93,43 @@ include 'models/conexion.php';
                         } ?>
                     </table>
                 </div>
-
-
             </form>
-        </div>
-        <h2 class="centrar-texto">Vender producto</h2>
-        <div class="venta centrar-texto">
-            <div class="campo__venta">
-                <label for="">Nombre del producto:</label>
-                <input type="text">
-            </div>
-            <div class="campo__venta">
-                <label for="">Cantidad:</label>
-                <input type="number" min=0>
-                <input type="submit">
-            </div>
 
-        </div>
+
+<br><br>
+<hr>
+<!--vender-->
+<?php
+   $sqlPro = "SELECT * FROM producto";
+   $pro = mysqli_query($conn,$sqlPro);
+?>
+    
+<div class="actualizar">
+    <h2>Vender Producto</h2>
+    <form action="#"  method="post" id="formulario">
+
+    <label for="">Producto:</label>
+    <select name="producto" id="" class="select">
+        <?php while ($fila = mysqli_fetch_row($pro)){  ?>
+            <option value="<?php echo $fila[1] ?>"> <?php echo $fila[1] ?> </option>
+        <?php } ?>
+    </select>
+
+    <div>
+        <label for="cantidad">Cantidad:</label><input type="text" id="cant" class="cantidad" name="cantidad">
+        <p id="error" class="formulario__input-error" >Ingrese solo numeros</p>
+    </div>
+
+    <div class="botones">
+        <input type="submit"  id="enviar" value="Comprar" name="enviar" class="input" >
+    </div>
+
+    </form>
+</div>
+
+
+<script src="js/admin2.js" ></script>
+    
 
     <?php
     } else {
@@ -118,7 +139,10 @@ include 'models/conexion.php';
     <?php
     } ?>
 
-
+<?php
+        $sqlPro = "SELECT * FROM producto";
+        $pro = mysqli_query($conn,$sqlPro);
+    ?>
 
 
 </body>
