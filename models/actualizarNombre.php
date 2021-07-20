@@ -1,9 +1,8 @@
 <?php
 include("conexion.php");
 
-$cant = $_POST['cantidad'];
-$producto = $_POST['producto'];
-$ciudad = $_POST['ciudad'];
+$nom = $_POST['nombre'];
+$producto = $_POST['productoN'];
 
 //recuperacion del is producto
 $idPro = " SELECT id FROM producto where nombre='$producto' ";
@@ -12,17 +11,10 @@ if( $fila1 = mysqli_fetch_row($resultP) ){
     $product = $fila1[0];
 }
 
-//Recuperacion id bodega
-$idCiu = " SELECT id FROM bodega where ciudad='$ciudad' ";
-$resultB = mysqli_query($conn,$idPro);
-if( $fila2 = mysqli_fetch_row($resultB) ){
-    $city = $fila2[0];
-}
-
-$actulizar = "update detalle_bodega
-            set cantidad = '$cant'
-            where idbod = '$city'
-            and idprod = '$product' ";
+$actulizar = "update Producto
+              set nombre='$nom'
+              where id= '$product' ";
+              
 $resultA = mysqli_query($conn,$actulizar);
 if( $resultA == false ){
     header("location:http://localhost/bodegas_aos/views/modules/admin.php");
@@ -30,5 +22,6 @@ if( $resultA == false ){
 }else{
     //echo json_encode("Actualizado");
     header("location:http://localhost/bodegas_aos/views/modules/admin.php");
-}   
+} 
+
 ?>

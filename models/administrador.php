@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/sucursal.css">
+    <link rel="stylesheet" href="css/admin.css">
     <title>Document</title>
 </head>
 <body>
@@ -49,8 +49,8 @@
 ?>
 
 <div class="actualizar">
-    <h2>Actualizar Productos</h2>
-    <form action="../../models/actualizarProductos.php"  method="post" id="formulario">
+    <h2>Actualizar Cantidad</h2>
+    <form action="http://localhost/models/actualizarProductos.php"  method="post" id="formulario">
 
     <label for="">Producto:</label>
     <select name="producto" id="">
@@ -77,6 +77,37 @@
 
     </form>
 </div>
-    <script src="../../js/admin.js" ></script>
+
+
+<!-- Actualizar Producto-->
+<?php
+   $sqlPro = "SELECT * FROM producto";
+   $pro = mysqli_query($conn,$sqlPro);
+?>
+
+<div class="actualizarN">
+    <h2>Actualizar Nombre</h2>
+    <form action="http://localhost/models/actualizarProductos.php"  method="post" id="formulario2">
+
+    <label for="">Producto:</label>
+    <select name="productoN" id="">
+        <?php while ($fila = mysqli_fetch_row($pro)){  ?>
+            <option value="<?php echo $fila[1] ?>"> <?php echo $fila[1] ?> </option>
+        <?php } ?>
+    </select>
+
+    <div>
+        <label for="cantidad">Nombre:</label><input type="text" id="nom" class="cantidad" name="nombre">
+        <p id="errorN" class="formulario__input-error" >Ingrese solo letras</p>
+    </div>
+
+    <div class="botones">
+        <input type="submit"  id="enviarN" value="Enviar" name="enviar" >
+    </div>
+
+    </form>
+</div>
+<footer></footer>
+    <script src="js/admin2.js" ></script>
 </body>
 </html>

@@ -1,0 +1,90 @@
+.cantidad, 
+select{
+    position: relative;
+    height: 30px;
+    width: 60%;
+    left: 25px;
+    border: 1px solid #95B8E7;
+    background-color: #fff;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+}
+
+.formulario__input-error{
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+.formulario__input-error-activo{
+    display: block;
+}
+
+/* actualizar*/
+table{
+	border: 1px solid black;
+	border-collapse: collapse;
+    user-select: none;
+}
+table td{
+	border:1px solid black;
+	padding: 10px 20px;
+	text-transform: uppercase;
+}
+table tr:hover{
+	background:#ccc;
+    color: red;
+}
+/*table td:hover{
+	color: red;
+}*/
+.contenedor {
+        color: black;
+    }
+
+
+.actualizar,
+.actualizarN{
+    border: 2px solid bisque;
+    padding:30px 20px;
+    width:350px;
+    height:350px;
+    float: left;
+    display:block;
+}
+    
+.actualizar{
+    position: relative;
+    left: 17%;
+    top: 5%;
+    user-select: none;
+} 
+
+.actualizarN{
+    position: relative;
+    left: 27%;
+    top: 5%;
+    user-select: none;
+} 
+
+*{
+    padding: 0%;
+}
+
+input{
+    cursor: pointer;
+    left: 15px;
+    margin-left:88px;
+    margin-top: 5px;
+    width: 120px;
+    height: 25px;
+}
