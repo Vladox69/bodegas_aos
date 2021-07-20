@@ -14,8 +14,8 @@
 
    $queryAll = "select b.ciudad, p.nombre, db.cantidad, db.estado
                from bodega as b, detalle_bodega as db, producto as p
-               where db.idbod = p.id
-               and db.idprod = b.id";
+               where db.idprod = p.id
+               and db.idbod  = b.id";
    $result = mysqli_query($conn,$queryAll);
 ?>
 <th><h2 class="h2">Listado de Productos en Bodegas</h2></th>

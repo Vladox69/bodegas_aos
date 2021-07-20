@@ -5,7 +5,7 @@ $cant = $_POST['cantidad'];
 $producto = $_POST['producto'];
 $ciudad = $_POST['ciudad'];
 
-//recuperacion del is producto
+//recuperacion del id producto
 $idPro = " SELECT id FROM producto where nombre='$producto' ";
 $resultP = mysqli_query($conn,$idPro);
 if( $fila1 = mysqli_fetch_row($resultP) ){
@@ -14,7 +14,7 @@ if( $fila1 = mysqli_fetch_row($resultP) ){
 
 //Recuperacion id bodega
 $idCiu = " SELECT id FROM bodega where ciudad='$ciudad' ";
-$resultB = mysqli_query($conn,$idPro);
+$resultB = mysqli_query($conn,$idCiu);
 if( $fila2 = mysqli_fetch_row($resultB) ){
     $city = $fila2[0];
 }
