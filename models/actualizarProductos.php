@@ -19,8 +19,17 @@ if( $fila2 = mysqli_fetch_row($resultB) ){
     $city = $fila2[0];
 }
 
+//actualizar
+$dql = " SELECT cantidad FROM detalle_bodega WHERE idbod = '$city' and idprod = '$product' ";
+    $resultado = mysqli_query($conn,$dql);
+    if( $fila3 = mysqli_fetch_row($resultado) ){
+        $old_cant = $fila3[0];
+    }
+
+$new_cant = $cant + $old_cant  ;    
+
 $actulizar = "update detalle_bodega
-            set cantidad = '$cant'
+            set cantidad = '$new_cant'
             where idbod = '$city'
             and idprod = '$product' ";
 $resultA = mysqli_query($conn,$actulizar);
