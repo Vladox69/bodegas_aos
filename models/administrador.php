@@ -87,7 +87,7 @@
 
 <div class="actualizarN">
     <h2>Actualizar Nombre</h2>
-    <form action="http://localhost/models/actualizarProductos.php"  method="post" id="formulario2">
+    <form action="models/actualizarNombre.php"  method="post" id="formulario2">
 
     <label for="">Producto:</label>
     <select name="productoN" id="">
