@@ -108,6 +108,6 @@
     </form>
 </div>
 <footer></footer>
-    <script src="js/admin2.js" ></script>
+    <script src="js/admin.js" ></script>
 </body>
 </html>

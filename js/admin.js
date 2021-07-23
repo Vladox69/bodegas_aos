@@ -11,21 +11,22 @@ const campos = {
     cantP : false
 }
 
-const aux=false;
+//aux=false;
 
 const validar = () =>  {
     if( expresiones.cantidad.test(cantidad.value) ){
         document.getElementById("error").classList.remove("formulario__input-error-activo");
         document.getElementById("error").classList.add("formulario__input-error");
-        aux = true;
+        campos.cantP = true;
     }else{
         document.getElementById("error").classList.remove("formulario__input-error");
         document.getElementById("error").classList.add("formulario__input-error-activo");
-        aux = false;
+        campos.cantP = false;
         //console.log("jkd");
     }
     //console.log("jkd");
 }
+
 cantidad.addEventListener( "keyup", validar );
 
 //enviar
@@ -52,11 +53,11 @@ const validar2 = () =>  {
     if( expresiones.nombreP.test(nom.value) ){
         document.getElementById("errorN").classList.remove("formulario__input-error-activo");
         document.getElementById("errorN").classList.add("formulario__input-error");
-        aux = true;
+        campos.nombre = true;
     }else{
         document.getElementById("errorN").classList.remove("formulario__input-error");
         document.getElementById("errorN").classList.add("formulario__input-error-activo");
-        aux = false;
+        campos.nombre = false;
     }
 }
 nom.addEventListener( "keyup", validar2 );
@@ -73,4 +74,3 @@ const validarCampo2 = (e) =>{
 }
  
 formulario2.addEventListener("submit", validarCampo2);
-

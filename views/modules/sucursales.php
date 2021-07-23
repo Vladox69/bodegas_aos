@@ -106,10 +106,10 @@ include 'models/conexion.php';
 
             <div class="actualizar">
                 <h2>Vender Producto</h2>
-                <form action="#" method="post" id="formulario">
+                <form action="models/venderProductos.php" method="post" id="formulario">
                     <div>
                         <label for="">Bodega:</label>
-                        <select name="ciudades" id="ciud">
+                        <select name="bodegas" id="ciud">
                             <option value disabled selected>
                                 Selecciona una ciudad
                             </option>
@@ -118,7 +118,7 @@ include 'models/conexion.php';
                             <option value="3">CUENCA</option>
                         </select>
                     </div>
-                        <div id="productos">
+                        <div id="productos" name="productos">
                         </div>
 
                     <div>
@@ -134,7 +134,7 @@ include 'models/conexion.php';
             </div>
 
 
-            <script src="js/admin2.js"></script>
+            <script src="js/admin.js"></script>
 
 
         <?php
