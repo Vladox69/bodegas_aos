@@ -26,12 +26,21 @@ $dql = " SELECT cantidad FROM detalle_bodega WHERE idbod = '$city' and idprod = 
         $old_cant = $fila3[0];
     }
 
-$new_cant = $cant + $old_cant  ;    
+$new_cant = $cant + $old_cant; 
 
-$actulizar = "update detalle_bodega
-            set cantidad = '$new_cant'
-            where idbod = '$city'
-            and idprod = '$product' ";
+if( $old_cant == 0){
+    $actulizar = "update detalle_bodega
+                set cantidad = '$new_cant',
+                    estado = 'S'
+                where idbod = '$city'
+                and idprod = '$product' ";
+}else{
+    $actulizar = "update detalle_bodega
+                set cantidad = '$new_cant'
+                where idbod = '$city'
+                and idprod = '$product' ";
+}
+
 $resultA = mysqli_query($conn,$actulizar);
 if( $resultA == false ){
     header("location:http://localhost/bodegas_aos/index.php?action=productos");

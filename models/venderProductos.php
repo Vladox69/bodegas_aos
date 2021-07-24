@@ -37,7 +37,7 @@ if( $resultA == false ){
     header("location:http://localhost/bodegas_aos/index.php?action=sucursales");
     //echo json_encode("no actualizaddo");
 }else{
-    //echo '<script> alert("Vendido")</script>';
+    echo '<script> alert("Vendido")</script>';
     //echo json_encode("Actualizado");
     header("location:http://localhost/bodegas_aos/index.php?action=sucursales");
 }   
