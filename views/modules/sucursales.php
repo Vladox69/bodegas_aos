@@ -127,13 +127,12 @@ include 'models/conexion.php';
                     </div>
 
                     <div class="botones">
-                        <input type="submit" id="enviar" value="Comprar" name="enviar" class="input">
+                        <input type="submit" id="enviar" value="Comprar" name="enviar" class="input" >
                     </div>
 
                 </form>
             </div>
-
-
+            
             <script src="js/admin.js"></script>
 
 
