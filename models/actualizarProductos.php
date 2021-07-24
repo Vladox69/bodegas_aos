@@ -2,25 +2,12 @@
 include("conexion.php");
 
 $cant = $_POST['cantidad'];
-$producto = $_POST['producto'];
+$producto = $_POST['productos'];
 $ciudad = $_POST['ciudad'];
 
-//recuperacion del id producto
-$idPro = " SELECT id FROM producto where nombre='$producto' ";
-$resultP = mysqli_query($conn,$idPro);
-if( $fila1 = mysqli_fetch_row($resultP) ){
-    $product = $fila1[0];
-}
-
-//Recuperacion id bodega
-$idCiu = " SELECT id FROM bodega where ciudad='$ciudad' ";
-$resultB = mysqli_query($conn,$idCiu);
-if( $fila2 = mysqli_fetch_row($resultB) ){
-    $city = $fila2[0];
-}
 
 //actualizar
-$dql = " SELECT cantidad FROM detalle_bodega WHERE idbod = '$city' and idprod = '$product' ";
+$dql = " SELECT cantidad FROM detalle_bodega WHERE idbod = '$ciudad' and idprod = '$producto' ";
     $resultado = mysqli_query($conn,$dql);
     if( $fila3 = mysqli_fetch_row($resultado) ){
         $old_cant = $fila3[0];
@@ -32,13 +19,13 @@ if( $old_cant == 0){
     $actulizar = "update detalle_bodega
                 set cantidad = '$new_cant',
                     estado = 'S'
-                where idbod = '$city'
-                and idprod = '$product' ";
+                where idbod = '$ciudad'
+                and idprod = '$producto' ";
 }else{
     $actulizar = "update detalle_bodega
                 set cantidad = '$new_cant'
-                where idbod = '$city'
-                and idprod = '$product' ";
+                where idbod = '$ciudad'
+                and idprod = '$producto' ";
 }
 
 $resultA = mysqli_query($conn,$actulizar);
