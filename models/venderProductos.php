@@ -13,7 +13,7 @@ $dql = " SELECT cantidad FROM detalle_bodega WHERE idbod = '$ciudad' and idprod 
     }
     echo $old_cant;
 
-$new_cant = (($cant-$old_cant) * (-1) );    
+$new_cant = ($cant-$old_cant) * (-1) ;    
 
 $actulizar = "update detalle_bodega
             set cantidad = '$new_cant'
