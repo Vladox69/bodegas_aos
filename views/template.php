@@ -55,3 +55,47 @@
         });
     }    
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        recargarTabla();
+        $('#ciud_tabla').change(function() {
+            recargarTabla();
+        });
+    })
+</script>
+
+<script type="text/javascript">
+    function recargarTabla() {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/bodegas_aos/models/productosTabla.php",
+            data: "ciud_tabla=" + $('#ciud_tabla').val(),
+            success: function(r) {
+                $('#tabla').html(r);
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        recargarBusqueda();
+        $('#nom_tabla').change(function() {
+            recargarBusqueda();
+        });
+    })
+</script>
+
+<script type="text/javascript">
+    function recargarBusqueda() {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/bodegas_aos/models/productosSearch.php",
+            data: "nom_tabla=" + $('#nom_tabla').val(),
+            success: function(r) {
+                $('#tabla').html(r);
+            }
+        });
+    }
+</script>
