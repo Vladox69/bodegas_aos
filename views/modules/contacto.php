@@ -50,7 +50,7 @@ include 'models/conexion.php';
         <br>
         <div class="actualizar">
             <h2>Vender Producto</h2>
-            <form action="models/venderProductos.php" method="post" id="formulario">
+            <form  method="post" id="formulario">
                 <div>
                     <label for="">Bodega:</label>
                     <select name="bodegas" id="ciud">
@@ -71,12 +71,64 @@ include 'models/conexion.php';
                 </div>
 
                 <div class="botones">
-                    <input type="submit" id="enviar" value="Comprar" name="enviar" class="input">
+                    <input type="submit" id="enviar" value="Comprar" name="comprar" class="input">
                 </div>
 
             </form>
         </div>
         <script src="js/admin.js"></script>
+
+        <!-- Vender producto codigo php -->
+        <?php
+
+if (isset($_POST['comprar'])) {
+
+    $cant = $_POST['cantidad'];
+    $ciudad = $_POST['bodegas'];
+    $producto = $_POST['productos'];
+
+    //actualizar
+    $dql = " SELECT cantidad FROM detalle_bodega WHERE idbod = '$ciudad' and idprod = '$producto' ";
+    $resultado = mysqli_query($conn, $dql);
+    if ($fila3 = mysqli_fetch_row($resultado)) {
+        $old_cant = $fila3[0];
+    }
+
+    if ($cant == $old_cant) {
+        $new_cant = 0;
+    } else  if ($cant > $old_cant) {
+        $new_cant = $old_cant;
+    } else {
+        $new_cant = $old_cant - $cant;
+    }
+
+    if ($cant == $old_cant) {
+        $actulizar = "update detalle_bodega
+        set cantidad = '$new_cant', estado = 'A'
+        where idbod = '$ciudad'
+        and idprod = '$producto' ";
+    } else {
+        $actulizar = "update detalle_bodega
+        set cantidad = '$new_cant'
+        where idbod = '$ciudad'
+        and idprod = '$producto' ";
+    }
+
+    $resultA = mysqli_query($conn, $actulizar);
+    if ($resultA == false) {
+        echo "<script> No se pudo vender </script>";
+        //echo json_encode("no actualizaddo");
+    } else {
+        if ($cant > $old_cant) {
+            echo "<script> alert('Stock insuficiente' ) </script>";
+        } else {
+            echo '<script> alert("Vendido")</script>';
+        }
+        //echo json_encode("Actualizado");
+    }
+}
+?>
+
 
     <?php
     } else {

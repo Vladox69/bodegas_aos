@@ -5,7 +5,9 @@ $sqlSelect="SELECT DISTINCT producto.id,producto.nombre FROM producto,bodega , d
 
 $result=mysqli_query($conn,$sqlSelect);
 $cadena="<label>Productos:</label>
-        <select id='productos' name='productos'>";
+        <select id='productos' name='productos'>  <option value disabled selected>
+        Selecciona un producto
+    </option>";
   while($ver=mysqli_fetch_row($result)){
       $cadena=$cadena.'<option value='.$ver[0].'>'.utf8_encode($ver[1]).'</option>';
   }      
