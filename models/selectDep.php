@@ -32,7 +32,7 @@
     function recargarList(){
         $.ajax({
             type:"POST",
-            url:"http://localhost/bodegas_aos/models/productosSelec.php",
+            url:"http://bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com/bodegas_aos/models/productosSelec.php",
             data:"ciud="+$('#ciud').val(),
             success:function(r){
                 $('#productos').html(r);

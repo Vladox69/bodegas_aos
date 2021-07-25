@@ -1,5 +1,5 @@
 <?php
-$conn= mysqli_connect('localhost','root','','bodegas');
+$conn= mysqli_connect('bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com','root','','bodegas');
 $ciud_tabla=$_POST['ciud_tabla'];
 $sqlSelect = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where b.id='$ciud_tabla' and b.id=d.idbod and p.id=d.idprod and d.estado='s'";
 

@@ -1,8 +1,8 @@
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="bodegas";
+$servername="bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com";
+$username="bbo4bxid24vtckefdtix";
+$password="MQrORY1LgWcC5s9V8im4";
+$dbname="bbo4bxid24vtckefdtix";
 $conn= mysqli_connect($servername,$username,$password,$dbname);
 $mysqli = new mysqli($servername,$username,$password,$dbname);
 if(!$mysqli)

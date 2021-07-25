@@ -1,5 +1,5 @@
 <?php
-$conn= mysqli_connect('localhost','root','','bodegas');
+$conn= mysqli_connect('bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com','root','','bodegas');
 $ciud=$_POST['ciud'];
 $sqlSelect="SELECT DISTINCT producto.id,producto.nombre FROM producto,bodega , detalle_bodega WHERE detalle_bodega.idbod='$ciud' and producto.id=detalle_bodega.idprod";
 

@@ -42,7 +42,7 @@ inputs.forEach( (input) =>{
 
 formulario.addEventListener('submit', (e) => {
 	if(campos.usuario && campos.password ){
-        //formulario.setAttribute("action","http://localhost/bodegas/models/consumoServicioLogin.php");
+        //formulario.setAttribute("action","http://bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com/bodegas/models/consumoServicioLogin.php");
         //formulario.reset();
 	} else {
         e.preventDefault();
