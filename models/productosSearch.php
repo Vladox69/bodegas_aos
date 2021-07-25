@@ -2,7 +2,7 @@
 $conn= mysqli_connect('localhost','root','','bodegas');
 $product_search=$_POST['nom_tabla'];
 
-$sqlBuscar = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where p.nombre like '" . $product_search . "%' and b.id=d.idbod and p.id=d.idprod order by p.nombre";
+$sqlBuscar = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where p.nombre like '" . $product_search . "%' and b.id=d.idbod and p.id=d.idprod and d.estado='s' order by p.nombre";
 
 $result=mysqli_query($conn,$sqlBuscar);
 $cadena="<table class='tabla'> 

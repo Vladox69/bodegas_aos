@@ -6,7 +6,7 @@ $_SESSION['usuario']=$usuario;
 
 $conexion=mysqli_connect("localhost","root","","bodegas");
 
-$consulta="SELECT*FROM usuarios where nombre='$usuario' and contra='$contraseña'";
+$consulta="SELECT nombre,perfil,idbod,ciudad FROM usuarios as a,bodega as b WHERE a.nombre='$usuario' and a.contra='$contraseña' and a.idbod=b.id";
 
 $resultado=mysqli_query($conexion,$consulta);
 
@@ -29,6 +29,7 @@ if(is_null($filas)){
     $_SESSION['nom'] = $filas['nombre']; 
     $_SESSION['perfil'] = $filas['perfil'];
     $_SESSION['idbod'] = $filas['idbod'];
+    $_SESSION['ciudad']=$filas['ciudad'];
     if($filas['perfil']=='admin'){ //administrador
     header('location: ../index.php?action=productos');
 

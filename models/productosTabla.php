@@ -1,7 +1,7 @@
 <?php
 $conn= mysqli_connect('localhost','root','','bodegas');
 $ciud_tabla=$_POST['ciud_tabla'];
-$sqlSelect = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where b.id='$ciud_tabla' and b.id=d.idbod and p.id=d.idprod";
+$sqlSelect = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where b.id='$ciud_tabla' and b.id=d.idbod and p.id=d.idprod and d.estado='s'";
 
 $result=mysqli_query($conn,$sqlSelect);
 $cadena="<table class='tabla'> 
