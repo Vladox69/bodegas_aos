@@ -47,7 +47,7 @@
     function recargarList(){
         $.ajax({
             type:"POST",
-            url:"http://bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com/bodegas_aos/models/productosSelec.php",
+            url:"../models/productosSelec.php",
             data:"ciud="+$('#ciud').val(),
             success:function(r){
                 $('#productos').html(r);
@@ -69,7 +69,7 @@
     function recargarTabla() {
         $.ajax({
             type: "POST",
-            url: "http://bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com/bodegas_aos/models/productosTabla.php",
+            url: "../models/productosTabla.php",
             data: "ciud_tabla=" + $('#ciud_tabla').val(),
             success: function(r) {
                 $('#tabla').html(r);
@@ -91,7 +91,7 @@
     function recargarBusqueda() {
         $.ajax({
             type: "POST",
-            url: "http://bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com/bodegas_aos/models/productosSearch.php",
+            url: "../models/productosSearch.php",
             data: "nom_tabla=" + $('#nom_tabla').val(),
             success: function(r) {
                 $('#tabla').html(r);
