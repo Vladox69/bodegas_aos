@@ -90,7 +90,7 @@
 
     <div class="actualizarN">
         <h2>Actualizar Nombre</h2>
-        <form action="models/actualizarNombre.php" method="post" id="formulario2">
+        <form action="models/actualizarNombre.php" method="post" id="formulario">
 
             <label for="">Producto:</label>
             <select name="productoN" id="">
@@ -100,8 +100,8 @@
             </select>
 
             <div>
-                <label for="cantidad">Nombre:</label><input type="text" id="nom" class="cantidad" name="nombre">
-                <p id="errorN" class="formulario__input-error">Ingrese solo letras</p>
+                <label for="cantidad">Nombre:</label><input type="text" id="cant" class="cantidad" name="nombre">
+                <p id="errorN" class="formulario__input-error">Ingrese solo números</p>
             </div>
 
             <div class="botones">
