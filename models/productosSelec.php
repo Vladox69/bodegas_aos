@@ -1,5 +1,6 @@
 <?php
-$conexion=mysqli_connect("bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com","umyq6rfhdrdgbcom","MQrORY1LgWcC5s9V8im4","bbo4bxid24vtckefdtix");
+include 'conexion.php';
+//$conexion=mysqli_connect("bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com","umyq6rfhdrdgbcom","MQrORY1LgWcC5s9V8im4","bbo4bxid24vtckefdtix");
 $ciud=$_POST['ciud'];
 $sqlSelect="SELECT DISTINCT producto.id,producto.nombre FROM producto,bodega , detalle_bodega WHERE detalle_bodega.idbod='$ciud' and producto.id=detalle_bodega.idprod";
 
