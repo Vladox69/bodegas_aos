@@ -12,16 +12,10 @@ if( $fila1 = mysqli_fetch_row($resultP) ){
 }
 
 $actulizar = "update Producto
-              set precio='$nom'
+              set nombre='$nom'
               where id= '$product' ";
 
 $resultA = mysqli_query($conn,$actulizar);
-if( $resultA == false ){
-    header("location:https://aosgrupouno.cleverapps.io/index.php?action=productos");
-    //echo json_encode("no actualizaddo");
-}else{
-    //echo json_encode("Actualizado");
-    header("location:https://aosgrupouno.cleverapps.io/index.php?action=productos");
-} 
+header("location:https://aosgrupouno.cleverapps.io/index.php?action=productos"); 
 
 ?>
