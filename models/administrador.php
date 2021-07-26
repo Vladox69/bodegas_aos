@@ -14,7 +14,7 @@
         <?php
         include("conexion.php");
 
-        $queryAll = "select b.ciudad, p.nombre, db.cantidad, db.estado
+        $queryAll = "select b.ciudad, p.nombre, db.cantidad, db.estado,p.precio
                from bodega as b, detalle_bodega as db, producto as p
                where db.idprod = p.id
                and db.idbod  = b.id";
@@ -29,6 +29,7 @@
                 <td><b>PRODUCTO</b></td>
                 <td><b>CANTIDAD</b></td>
                 <td><b>ESTADO</b></td>
+                <td><b>PRECIO</b></td>
             </tr>
             <?php while ($filas = mysqli_fetch_row($result)) { ?>
                 <tr>
@@ -36,6 +37,7 @@
                     <td><?php echo $filas[1] ?></td>
                     <td><?php echo $filas[2] ?></td>
                     <td><?php echo $filas[3] ?></td>
+                    <td><?php echo $filas[4] ?></td>
                 </tr>
 
             <?php } ?>

@@ -30,16 +30,18 @@ include 'models/conexion.php';
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Bodega</th>
+                    <th>Precio</th>
                 </tr>
                 <?php
                 $bodega = $_SESSION['ciudad'];
-                $sqlSelect = "SELECT p.nombre, d.cantidad, b.ciudad FROM bodega as b, producto as p, detalle_bodega as d where b.ciudad='$bodega' and b.id=d.idbod and p.id=d.idprod and d.estado='s'";
+                $sqlSelect = "SELECT p.nombre, d.cantidad, b.ciudad,p.precio FROM bodega as b, producto as p, detalle_bodega as d where b.ciudad='$bodega' and b.id=d.idbod and p.id=d.idprod and d.estado='s'";
                 $respuesta = $conn->query($sqlSelect);
                 while ($fila = mysqli_fetch_row($respuesta)) { ?>
                     <tr>
                         <td> <?php echo $fila[0]; ?> </td>
                         <td> <?php echo $fila[1]; ?> </td>
                         <td> <?php echo $fila[2]; ?> </td>
+                        <td> <?php echo $fila[3]; ?> </td>
                     <tr>
                     <?php } ?>
             </table>
