@@ -17,11 +17,11 @@ $actulizar = "update Producto
 
 $resultA = mysqli_query($conn,$actulizar);
 if( $resultA == false ){
-    header("location:http://bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com/bodegas_aos/index.php?action=productos");
+    header("location:https://aosgrupouno.cleverapps.io/index.php?action=productos");
     //echo json_encode("no actualizaddo");
 }else{
     //echo json_encode("Actualizado");
-    header("location:http://bbo4bxid24vtckefdtix-mysql.services.clever-cloud.com/bodegas_aos/index.php?action=productos");
+    header("location:https://aosgrupouno.cleverapps.io/index.php?action=productos");
 } 
 
 ?>
