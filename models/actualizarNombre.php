@@ -12,7 +12,7 @@ if( $fila1 = mysqli_fetch_row($resultP) ){
 }
 
 $actulizar = "update Producto
-              set nombre='$nom'
+              set precio='$nom'
               where id= '$product' ";
 
 $resultA = mysqli_query($conn,$actulizar);
