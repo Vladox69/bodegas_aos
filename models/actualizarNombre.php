@@ -11,8 +11,8 @@ if( $fila1 = mysqli_fetch_row($resultP) ){
     $product = $fila1[0];
 }
 
-$actulizar = "update Producto
-              set nombre='$nom'
+$actulizar = "update producto
+              set precio = '$nom'
               where id= '$product' ";
 
 $resultA = mysqli_query($conn,$actulizar);
